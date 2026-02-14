@@ -30,14 +30,13 @@ export default function Proposal() {
   const [showGallery, setShowGallery] = useState(false);
   const [index, setIndex] = useState(0);
 
-  useEffect(() => {
-    if (!showGallery) return;
-    const t = setInterval(
-      () => setIndex(i => (i + 1) % images.length),
-      2500
-    );
+ useEffect(() => {
+  if (!showGallery) return;
+    const t = setInterval(() => {
+      setIndex(i => (i + 1) % images.length);
+    }, 2500);
     return () => clearInterval(t);
-  }, [showGallery]);
+  }, [showGallery, images.length]);
 
   return (
     <div className="page">
