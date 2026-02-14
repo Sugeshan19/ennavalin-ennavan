@@ -1,0 +1,230 @@
+* {
+  box-sizing: border-box;
+}
+
+.page {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, #7c3aed, #1e1b4b);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: Inter, sans-serif;
+  color: white;
+  padding: 40px;
+}
+
+/* HERO */
+
+.hero {
+  text-align: center;
+  animation: fadeUp 1s ease;
+}
+
+.hero h1 {
+  font-size: 42px;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.hero p {
+  opacity: 0.85;
+  margin-top: 8px;
+}
+
+.hero-buttons {
+  margin-top: 28px;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+button {
+  border: none;
+  padding: 14px 22px;
+  border-radius: 14px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: .25s;
+  background: white;
+  color: #4c1d95;
+  font-weight: 600;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+.secondary {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+}
+
+/* GLASS CARD */
+
+.glass-card {
+  margin-top: 40px;
+  width: 420px;
+  padding: 28px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.15);
+  box-shadow: 0 20px 40px rgba(0,0,0,.25);
+  animation: fadeUp 0.6s ease;
+  text-align: center;
+}
+
+.actions {
+  margin-top: 18px;
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+}
+
+.yes {
+  background: #22c55e;
+  color: white;
+}
+
+.no {
+  background: #e5e7eb;
+  color: #111;
+}
+
+/* MODAL GALLERY */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel {
+  width: 720px;
+  height: 520px;
+  background: black;
+  padding: 14px;
+  border-radius: 18px;
+}
+
+.carousel img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 14px;
+}
+
+
+/* dots */
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: #555;
+  border-radius: 50%;
+}
+
+.dot.active {
+  background: white;
+}
+
+/* animations */
+
+@keyframes fade {
+  from { opacity: .3; transform: scale(.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* glowing floating hearts */
+
+.hearts-bg {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hearts-bg span {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: #ff4d9d;
+  transform: rotate(45deg);
+  animation: floatUp 10s linear infinite;
+  filter: blur(0.3px);
+  box-shadow:
+    0 0 12px #ff4d9d,
+    0 0 24px #ff4d9d,
+    0 0 48px #ff4d9d;
+  opacity: 0.75;
+}
+
+/* heart shape */
+.hearts-bg span::before,
+.hearts-bg span::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: #ff4d9d;
+  border-radius: 50%;
+}
+
+.hearts-bg span::before {
+  left: -9px;
+}
+
+.hearts-bg span::after {
+  top: -9px;
+}
+
+/* random positions */
+.hearts-bg span:nth-child(odd) {
+  background: #ff6bd6;
+}
+
+.hearts-bg span:nth-child(1) { left: 5%; animation-delay: 0s; }
+.hearts-bg span:nth-child(2) { left: 12%; animation-delay: 2s; }
+.hearts-bg span:nth-child(3) { left: 20%; animation-delay: 4s; }
+.hearts-bg span:nth-child(4) { left: 28%; animation-delay: 1s; }
+.hearts-bg span:nth-child(5) { left: 36%; animation-delay: 3s; }
+.hearts-bg span:nth-child(6) { left: 44%; animation-delay: 5s; }
+.hearts-bg span:nth-child(7) { left: 52%; animation-delay: 2s; }
+.hearts-bg span:nth-child(8) { left: 60%; animation-delay: 6s; }
+.hearts-bg span:nth-child(9) { left: 68%; animation-delay: 1s; }
+.hearts-bg span:nth-child(10){ left: 76%; animation-delay: 3s; }
+.hearts-bg span:nth-child(11){ left: 84%; animation-delay: 5s; }
+.hearts-bg span:nth-child(12){ left: 92%; animation-delay: 7s; }
+
+@keyframes floatUp {
+  0% {
+    bottom: -40px;
+    transform: translateY(0) scale(0.8) rotate(45deg);
+    opacity: 0;
+  }
+
+  20% { opacity: 0.9; }
+
+  100% {
+    bottom: 110%;
+    transform: translateY(-120vh) scale(1.4) rotate(45deg);
+    opacity: 0;
+  }
+}
