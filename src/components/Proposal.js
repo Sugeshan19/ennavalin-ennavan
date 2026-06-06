@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "../styles/Proposal.css";
+import { GridScan } from "./GridScan";
 
 export default function Proposal() {
   const images = [
@@ -84,6 +85,21 @@ export default function Proposal() {
 
       {showGallery && (
         <div className="modal" onClick={() => setShowGallery(false)}>
+          <div className="gridscan-background">
+            <GridScan
+              lineThickness={1.5}
+              linesColor="#FF9FFC"
+              scanColor="#FF9FFC"
+              scanOpacity={0.3}
+              gridScale={0.12}
+              lineStyle="solid"
+              lineJitter={0.05}
+              scanDirection="pingpong"
+              bloomIntensity={0.2}
+              scanGlow={0.6}
+              scanSoftness={1.5}
+            />
+          </div>
           <div className="carousel" onClick={e => e.stopPropagation()}>
             <img src={images[index]} alt="memory" />
             <div className="dots">
